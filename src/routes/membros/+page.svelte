@@ -1,6 +1,7 @@
 <script lang="ts">
   import { TabGroup, Tab, TabAnchor } from '@skeletonlabs/skeleton';
-  let tabSet: number = 0;
+  import MembroCard from '$lib/MembroCard.svelte'
+  var tabSet: number = 0;
 </script>
 
 <html>
@@ -11,14 +12,14 @@
     <Tab bind:group={tabSet} name="high" value={1}>
 		  <span>Everest High</span>
 	  </Tab>
-    <Tab bind:group={tabSet} name="Forzza" value={2}>
-		  <span>Forzza</span>
+    <Tab bind:group={tabSet} name="asanorte" value={2}>
+		  <span>Everest Asa Norte</span>
 	  </Tab>
     <svelte:fragment slot="panel">
 		  {#if tabSet === 0}
-			  (tab panel 1 contents)
+        <MembroCard />
 		  {:else if tabSet === 1}
-			  (tab panel 2 contents)
+			  (tab panel 2 contents)  
 		  {:else if tabSet === 2}
 			  (tab panel 3 contents)
 		  {/if}
