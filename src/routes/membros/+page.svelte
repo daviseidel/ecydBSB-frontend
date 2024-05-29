@@ -2,6 +2,8 @@
   import { TabGroup, Tab, TabAnchor } from '@skeletonlabs/skeleton';
   import MembroCard from '$lib/MembroCard.svelte'
   var tabSet: number = 0;
+
+  export let data;
 </script>
 
 <html>
@@ -17,14 +19,25 @@
 	  </Tab>
     <svelte:fragment slot="panel">
 		  {#if tabSet === 0}
-        <MembroCard />
+        {#each data.records.items as membro}
+          {#if membro.local === "Guadalupe"}
+            <MembroCard nome={membro.nome} etapa={membro.etapa} id={membro.id} image={membro.imagem} />
+          {/if}
+        {/each}
 		  {:else if tabSet === 1}
-			  (tab panel 2 contents)  
+        {#each data.records.items as membro}
+          {#if membro.local === "Everest High"}
+            <MembroCard nome={membro.nome} etapa={membro.etapa} id={membro.id} image={membro.imagem}/>
+          {/if}
+        {/each}
 		  {:else if tabSet === 2}
-			  (tab panel 3 contents)
+			  {#each data.records.items as membro}
+          {#if membro.local === "Everest Asa Norte"}
+            <MembroCard nome={membro.nome} etapa={membro.etapa} id={membro.id} image={membro.imagem} />
+          {/if}
+        {/each}
 		  {/if}
-	</svelte:fragment>
-
+	  </svelte:fragment>
   </TabGroup>
 
  </html>
