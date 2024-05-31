@@ -13,19 +13,21 @@
     target: 'popupClick',
     placement: 'bottom'
   };
-
+  import PopupUser  from "$lib/PopupUser.svelte"; 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     await login();
   };
 
+  let user;
+  $: user = pb.authStore.model;
 
-  let user = pb.authStore.model;
- 
+  $: user = user
+
   console.log(pb.authStore.model)
 </script>
-
+{#key currentUser}
 <!-- App Shell -->
 <AppShell>
 	<svelte:fragment slot="header">
@@ -45,44 +47,14 @@
           {/if} 
         </button>
 			</svelte:fragment>      
-      {#if user}
-      <div class="card p-4 w-72 shadow-xl items-end flex justify-items-end" data-popup="popupClick">
-        <div class="space-y-4 place-content-end justify-items-end">
-						<Avatar src="https://ecyd-bsb.pockethost.io/api/files/membros/{user.id}/{user.imagem}" width="w-16" />
-						<div>
-							<p class="font-bold">{user.nome}</p>
-							<p class="opacity-50">{user.etapa}° Etapa</p>
-						</div>
-            <div class="grid">
-              <button class="btn variant-soft">Eventos Inscritos</button>
-              <button class="btn variant-soft">Dados</button>
-            </div>
-						<div class="flex gap-4">
-							<small><strong>{2024 - user.anoDeAdesao}</strong> <span class="opacity-50">Anos no ECyD</span></small>
-							<small><strong>{0 }</strong> <span class="opacity-50">Eventos</span></small>
-						</div>
-						<a class="btn variant-filled-error w-full" on:click={logout}> Sair </a>
-				</div>
-				<div class="arrow bg-surface-100-800-token"></div>
-      </div>
-      {:else}
-       <div class="card p-4 w-72 shadow-xl items-end flex justify-items-end" data-popup="popupClick">
-        <div class="space-y-4 place-content-end justify-items-end">
-						<div class="grid">
-              <button class="btn variant-soft" on:click={login}>Login</button>
-              <button class="btn variant-soft" on:click={login}>Se Inscrever</button>
-            </div>
-				</div>
-				<div class="arrow bg-surface-100-800-token"></div>
-      </div>     
-      {/if}
-		</AppBar>
+      <PopupUser user={user} login={login} logout={logout} isLogado={user} />   
+		</AppBar> 
 	</svelte:fragment>
 	<!-- Page Route Content -->
 	<slot />
   
 </AppShell>
-
+{/key}
 <!-- popup -->
 
 

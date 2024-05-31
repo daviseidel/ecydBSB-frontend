@@ -15,11 +15,10 @@ pb.authStore.onChange((auth) => {
 export async function login() {
   try {
     const authData = await pb.collection('membros').authWithOAuth2({provider: 'google'});
-    console.log(pb.authStore.isValid);
+    console.log(authData);
     console.log(pb.authStore.model)  
     currentUser.set(pb.authStore.model);
-    // "logout" the last authenticated model
-    // pb.authStore.clear();
+    location.reload();
 
   } catch (error) {
     console.error('Login failed', error);
@@ -29,4 +28,5 @@ export async function login() {
 
 export async function logout() {
   pb.authStore.clear();
+  location.reload();
 }
