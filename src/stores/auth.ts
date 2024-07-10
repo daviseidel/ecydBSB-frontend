@@ -19,7 +19,6 @@ export async function login() {
     console.log(pb.authStore.model)  
     currentUser.set(pb.authStore.model);
     location.reload();
-
   } catch (error) {
     console.error('Login failed', error);
   }

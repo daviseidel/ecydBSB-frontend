@@ -30,7 +30,7 @@
       </div>
       <div class="flex gap-4">
         <small><strong>{2024 - user.anoDeAdesao}</strong> <span class="opacity-50">Anos no ECyD</span></small>
-        <small><strong>{0 }</strong> <span class="opacity-50">Eventos</span></small>
+        <small><strong>{user.eventos.length }</strong> <span class="opacity-50">Eventos</span></small>
       </div>
       <a class="btn variant-filled-error w-full" on:click={logout}> Sair </a>
   </div>
@@ -41,7 +41,7 @@
   <div class="space-y-4 place-content-end justify-items-end">
       <div class="grid">
         <button class="btn variant-soft" on:click={login}>Login</button>
-        <button class="btn variant-soft" on:click={login}>Se Inscrever</button>
+        <button class="btn variant-soft" on:click={login}>Inscrever-se</button>
       </div>
   </div>
   <div class="arrow bg-surface-100-800-token"></div>

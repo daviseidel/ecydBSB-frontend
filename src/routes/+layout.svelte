@@ -1,8 +1,11 @@
 <script lang="ts">
+  // Imports da interface
 	import '../app.postcss';
 	import { AppShell, AppBar, LightSwitch, Avatar } from '@skeletonlabs/skeleton';
+  // Imports da autenticação
   import { pb, currentUser, login, logout } from '../stores/auth.ts';
-  // Popup
+  // Imports do Popup
+  import PopupUser  from "$lib/PopupUser.svelte"; 
   import { popup } from '@skeletonlabs/skeleton';
   import type { PopupSettings } from '@skeletonlabs/skeleton';
   import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
@@ -13,7 +16,6 @@
     target: 'popupClick',
     placement: 'bottom'
   };
-  import PopupUser  from "$lib/PopupUser.svelte"; 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,9 +25,6 @@
   let user;
   $: user = pb.authStore.model;
 
-  $: user = user
-
-  console.log(pb.authStore.model)
 </script>
 {#key currentUser}
 <!-- App Shell -->
@@ -41,9 +40,9 @@
         <LightSwitch />
         <button use:popup={popupClick} class="card-hover rounded-full">
           {#if user}
-            <Avatar src="https://ecyd-bsb.pockethost.io/api/files/membros/{user.id}/{user.imagem}" initials="s" width="w-9"/>
+            <Avatar src="https://ecyd-bsb.pockethost.io/api/files/membros/{user.id}/{user.imagem}" initials="" width="w-9"/>
           {:else}
-            <Avatar initials="A" width="w-9"/>
+            <Avatar initials="" width="w-9"/>
           {/if} 
         </button>
 			</svelte:fragment>      
