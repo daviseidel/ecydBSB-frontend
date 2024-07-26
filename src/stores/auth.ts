@@ -14,10 +14,7 @@ pb.authStore.onChange((auth) => {
 
 export async function login() {
   try {
-    const authData = await pb.collection('membros').authWithOAuth2({provider: 'google'});
-    console.log(authData);
-    console.log(pb.authStore.model)  
-    currentUser.set(pb.authStore.model);
+    const authData = await pb.collection('membros').authWithOAuth2({provider: 'google'}); 
     location.reload();
   } catch (error) {
     console.error('Login failed', error);

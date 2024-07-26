@@ -2,20 +2,34 @@
   // Imports da interface
 	import '../app.postcss';
 	import { AppShell, AppBar, LightSwitch, Avatar } from '@skeletonlabs/skeleton';
+
+
+
+
   // Imports da autenticação
   import { pb, currentUser, login, logout } from '../stores/auth.ts';
+
+
   // Imports do Popup
   import PopupUser  from "$lib/PopupUser.svelte"; 
   import { popup } from '@skeletonlabs/skeleton';
   import type { PopupSettings } from '@skeletonlabs/skeleton';
   import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
   import { storePopup } from '@skeletonlabs/skeleton';
+
+
+
+
   storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow }); 
   const popupClick: PopupSettings = {
     event: 'click',
     target: 'popupClick',
     placement: 'bottom'
   };
+
+
+
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();

@@ -12,4 +12,7 @@
 	<a href="" class="logo-item">RG: {membro.rg}</a>
 	<a href="" class="logo-item">{2024 - membro.anoDeAdesao} anos no ECyD</a>
 	<a href="/membros" class="logo-item">Clube: {membro.local}</a>
+  {#each membro.eventos as item}
+     <p>{membro.expand.eventos[0].titulo}</p>
+  {/each}
 </div>
