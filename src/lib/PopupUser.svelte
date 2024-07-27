@@ -40,8 +40,8 @@
 <div class="card p-4 w-72 shadow-xl"  data-popup="popupClick">
   <div class="space-y-4 place-content-end justify-items-end">
       <div class="grid">
-        <button class="btn variant-soft" on:click={login}>Login</button>
-        <button class="btn variant-soft" on:click={login}>Inscrever-se</button>
+        <a class="btn variant-soft" href="/auth/login">Login</a>
+        <a class="btn variant-soft" href="/auth/signup">Inscrever-se</a>
       </div>
   </div>
   <div class="arrow bg-surface-100-800-token"></div>

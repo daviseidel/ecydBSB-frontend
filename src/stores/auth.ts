@@ -15,12 +15,23 @@ pb.authStore.onChange((auth) => {
 export async function login() {
   try {
     const authData = await pb.collection('membros').authWithOAuth2({provider: 'google'}); 
-    location.reload();
+    location.assign('/');
   } catch (error) {
     console.error('Login failed', error);
   }
 }
 
+export async function loginSenha(email: string, senha: string) {
+  try {
+    const authData = await pb.collection('membros').authWithPassword(
+      email,
+      senha,
+    ); 
+    location.assign('/');
+  } catch (error) {
+    console.error('Login failed', error);
+  }
+}
 
 export async function logout() {
   pb.authStore.clear();

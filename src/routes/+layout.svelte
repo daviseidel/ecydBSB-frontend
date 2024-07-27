@@ -19,16 +19,12 @@
 
 
 
-
   storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow }); 
   const popupClick: PopupSettings = {
     event: 'click',
     target: 'popupClick',
     placement: 'bottom'
   };
-
-
-
 
 
   const handleSubmit = async (event) => {
@@ -40,6 +36,7 @@
   $: user = pb.authStore.model;
 
 </script>
+
 {#key currentUser}
 <!-- App Shell -->
 <AppShell>
