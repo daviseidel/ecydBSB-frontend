@@ -33,6 +33,14 @@ export async function loginSenha(email: string, senha: string) {
   }
 }
 
+export async function signupSenha() {
+
+}
+
+export async function completarCadastro() {
+
+}
+
 export async function logout() {
   pb.authStore.clear();
   location.reload();
