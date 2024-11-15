@@ -1,9 +1,6 @@
 <script lang="ts">
   import EventoCard from "$lib/EventoCard.svelte";
-  import PocketBase from 'pocketbase';
-  import {onMount} from 'svelte';
-
-  export let data: PageData; 
+  export let data; 
 </script>
 
 <div>

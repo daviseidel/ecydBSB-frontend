@@ -7,7 +7,12 @@
 
 
   // Imports da autenticação
-  import { pb, currentUser, login, logout } from '../stores/auth.ts';
+  import { pb, currentUser, login, logout } from '../stores/auth';
+
+
+  // Instansciando o modal
+  import { initializeStores, Modal } from '@skeletonlabs/skeleton';
+  initializeStores();
 
 
   // Imports do Popup
@@ -27,7 +32,7 @@
   };
 
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: Event) => {
     event.preventDefault();
     await login();
   };
@@ -36,6 +41,8 @@
   $: user = pb.authStore.model;
 
 </script>
+
+<Modal />
 
 {#key currentUser}
 <!-- App Shell -->
@@ -61,8 +68,7 @@
 		</AppBar> 
 	</svelte:fragment>
 	<!-- Page Route Content -->
-	<slot />
-  
+	<slot />  
 </AppShell>
 {/key}
 <!-- popup -->

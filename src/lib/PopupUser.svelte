@@ -41,7 +41,7 @@
   <div class="space-y-4 place-content-end justify-items-end">
       <div class="grid">
         <a class="btn variant-soft" href="/auth/login">Login</a>
-        <a class="btn variant-soft" href="/auth/signup">Inscrever-se</a>
+        <a class="btn variant-soft" href="/auth/form">Inscrever-se</a>
       </div>
   </div>
   <div class="arrow bg-surface-100-800-token"></div>

@@ -1,14 +1,15 @@
-<script>
-  import { login, loginSenha } from "../stores/auth.ts"
+<script lang="ts">
+  import { login, loginSenha } from "../stores/auth"
   let email = "";
   let password = "";
   let rememberMe = false;
   let flashMessages = []; 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: Event) => {
     e.preventDefault();
     loginSenha(email, password)
   };
+
 </script>
 
 <div class="max-w-sm flex flex-col justify-center align-middle h-full max-h-sm border-8">
@@ -54,7 +55,8 @@
     </div>
 
     <hr />
-    <button class="anchor px-2" on:click={login}>Entar com Google</button>
+    <button class="anchor px-2" on:click={() => login()}>Entar com Google</button>
+    
   </form>
 
 </div>

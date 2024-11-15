@@ -1,12 +1,15 @@
-<script>
+<script lang="ts">
   let email = "";
   let password = "";
   let rememberMe = false;
   let flashMessages = []; 
 
-  const handleSubmit = (e) => {
+
+
+  const handleSubmit = (e: Event) => {
     e.preventDefault();
     // Lógica de envio do formulário
+
   };
 </script>
 
@@ -44,6 +47,7 @@
 
     <hr />
     <a class="anchor px-2">Entar com Google</a>
+
   </form>
 
 </div>

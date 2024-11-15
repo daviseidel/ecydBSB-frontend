@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { TabGroup, Tab, TabAnchor } from '@skeletonlabs/skeleton';
+  import { TabGroup, Tab } from '@skeletonlabs/skeleton';
   import MembroCard from '$lib/MembroCard.svelte'
   var tabSet: number = 0;
 
   export let data;
 </script>
 
-<html>
+<html lang="pt-BR">
   <TabGroup>
     <Tab bind:group={tabSet} name="guadalupe" value={0}>
 		  <span>Guadalupe</span>
